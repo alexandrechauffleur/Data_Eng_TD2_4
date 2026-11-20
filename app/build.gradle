@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.td2app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.example.td2app'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    // Signing config for release builds. Values come from environment
+    // variables set by the CI workflow (from GitHub secrets) — never from the repo.
+    def ksFile = System.getenv("KEYSTORE_FILE")
+    signingConfigs {
+        release {
+            if (ksFile) {
+                storeFile file(ksFile)
+                storePassword System.getenv("KEYSTORE_PASSWORD")
+                keyAlias System.getenv("KEY_ALIAS")
+                keyPassword System.getenv("KEY_PASSWORD")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            // Only sign when a keystore is provided, so a local/unsigned
+            // `assembleRelease` still works without secrets.
+            if (ksFile) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
