@@ -6,7 +6,7 @@ Build d'APK Android **sans environnement local** (ni Android Studio, ni SDK, ni 
 
 | Fichier | Rôle |
 |---|---|
-| `app/` | Application Android minimale (une Activity Java qui affiche un texte) |
+| `app/` | Application Android minimale : une horloge simple (heure à la seconde + date, via `TextClock`) |
 | `gradlew`, `gradlew.bat`, `gradle/wrapper/` | Gradle wrapper 8.7 (jar vérifié par checksum SHA-256 officiel) |
 | `build.gradle`, `settings.gradle`, `gradle.properties` | Configuration Gradle (Android Gradle Plugin 8.5.2, compileSdk 34) |
 | `app/build.gradle` | Config de signature `release` lue depuis les variables d'environnement |

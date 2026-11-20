@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TD2 CI/CD</string>
-    <string name="hello">Hello from an APK built by GitHub Actions!</string>
+    <string name="app_name">Horloge</string>
 </resources>
